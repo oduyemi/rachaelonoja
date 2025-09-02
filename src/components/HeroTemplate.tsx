@@ -7,7 +7,6 @@ const MotionBox = motion(Box);
 const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
 const MotionButton = motion(Button);
-const MotionImage = motion(Image);
 
 interface HeroProps {
   title: string;

@@ -7,7 +7,6 @@ import {
   VStack,
   SimpleGrid,
   Link as ChakraLink,
-  HStack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";

@@ -9,8 +9,8 @@ const MotionBox = motion(Box);
 interface Testimonial {
   content?: string;
   author?: string;
-  image?: string; // Profile image for first two testimonials
-  screenshot?: string; // Screenshot for the third
+  image?: string; 
+  screenshot?: string; 
 }
 
 const testimonials: Testimonial[] = [
