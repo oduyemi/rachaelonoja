@@ -2,7 +2,7 @@
 import { Box, Flex, Heading, Text, VStack, SimpleGrid, AspectRatio, Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { FaArrowRight } from "react-icons/fa";
+
 
 const MotionBox = motion(Box);
 

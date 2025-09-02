@@ -67,7 +67,7 @@ export const AboutSection = () => {
             As a versatile education technology business consultant, I have spent over half a decade designing impactful program strategies and policies, developing the talent capacity of over half a million professionals.
           </Text>
           <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" maxW="700px">
-            See how I've impacted businesses, supported governments, expanded markets, and promoted #BalanceUnleashed:
+            See how I&apos;ve impacted businesses, supported governments, expanded markets, and promoted #BalanceUnleashed:
           </Text>
         </VStack>
       </Flex>

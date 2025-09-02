@@ -1,5 +1,5 @@
 "use client";
-import { Box, Flex, Heading, Text, VStack, Image as ChakraImage, Button, HStack, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, VStack, Image as ChakraImage, Button, useBreakpointValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
@@ -15,13 +15,13 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    content: "Rachael has been an excellent executor. She designed our pipeline program for building senior talents, and also created the first AltSchool Africa’s learning structure before passing the baton. She did excellently well with the expansion of our operations into Rwanda. She literally makes my life easy with every project she oversees.",
-    author: "Adewale Yusuf, CEO, TalentQL & AltSchool Africa.",
+    content: `Rachael has been an excellent executor. She designed our pipeline program for building senior talents, and also created the first AltSchool Africa’s learning structure before passing the baton. She did excellently well with the expansion of our operations into Rwanda. She literally makes my life easy with every project she oversees.`,
+    author: `Adewale Yusuf, CEO, TalentQL & AltSchool Africa.`,
     image: "/images/adewale.png",
   },
   {
-    content: "Rachael's leadership, vision, and abilities have profoundly impacted my career, serving as a testament to her brilliant work during the Pipeline program. Her investment in my career orientation and her relentless push for my aspirations have been instrumental in my journey from the program to securing a new job with all the promised benefits and more. Under Rachael's guidance, I've learned invaluable lessons about careers, mentorship, and navigating the tech ecosystem. Her mentorship has not just been a part but the catalyst in my transformation from an ordinary contractor with part-time gigs to an influential Senior Software Engineer and Educator. I am now part of a team building a fantastic product and have had the privilege of training over 10,000 engineers.",
-    author: "Setemi Ojo, Senior Software Engineer",
+    content: `Rachael's leadership, vision, and abilities have profoundly impacted my career, serving as a testament to her brilliant work during the Pipeline program. Her investment in my career orientation and her relentless push for my aspirations have been instrumental in my journey from the program to securing a new job with all the promised benefits and more. Under Rachael's guidance, I've learned invaluable lessons about careers, mentorship, and navigating the tech ecosystem. Her mentorship has not just been a part but the catalyst in my transformation from an ordinary contractor with part-time gigs to an influential Senior Software Engineer and Educator. I am now part of a team building a fantastic product and have had the privilege of training over 10,000 engineers.`,
+    author: `Setemi Ojo, Senior Software Engineer`,
     image: "/images/setemi.png",
   },
   {
