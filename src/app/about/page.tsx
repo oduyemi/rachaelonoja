@@ -11,7 +11,7 @@ export default function About() {
       <main>
         <Box>
             <HeroTemplate
-                title="About Us"
+                title="About Me"
                 subtitle="Learn more about my journey, values, and mission."
                 bgImage="/images/abthero.png"
                 />

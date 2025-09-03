@@ -12,8 +12,7 @@ export default function Services() {
             <HeroTemplate
                 title="Services"
                 subtitle="We provide world-class solutions tailored to your needs."
-                buttonText="Explore Services"
-                inlineImage="/images/services-illustration.svg"
+                bgImage="/images/serviceshero.jpg"
             />
         </Box>
       </main>

@@ -12,7 +12,7 @@ export default function Blog() {
             <HeroTemplate
                 title="Blog"
                 subtitle="Insights, stories, and updates from our team"
-                buttonText="Read Blog"
+                bgImage="/images/services.avif"
             />
         </Box>
       </main>

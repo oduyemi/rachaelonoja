@@ -12,7 +12,7 @@ export default function Contact() {
             <HeroTemplate
                 title="Get in Touch"
                 subtitle="I’d love to hear from you. Let’s connect today"
-                bgImage="/images/abthero.png"
+                bgImage="/images/contacthero.jpg"
                 />
 
 

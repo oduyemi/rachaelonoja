@@ -8,7 +8,7 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import {
-  FaFacebookF,
+  // FaFacebookF,
   FaTwitter,
   FaLinkedinIn,
   FaInstagram,
@@ -42,15 +42,15 @@ export const Header = () => {
   ];
 
   const socialLinks = [
-    { icon: FaFacebookF, href: "/facebook", label: "Facebook" },
-    { icon: FaTwitter, href: "/twitter", label: "Twitter" },
-    { icon: FaLinkedinIn, href: "/linkedin", label: "LinkedIn" },
-    { icon: FaInstagram, href: "/instagram", label: "Instagram" },
+    // { icon: FaFacebookF, href: "/facebook", label: "Facebook" },
+    { icon: FaTwitter, href: "https://x.com/onojarachael", label: "Twitter" },
+    { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/rachaelonoja/", label: "LinkedIn" },
+    { icon: FaInstagram, href: "https://www.instagram.com/onoja.rachael/", label: "Instagram" },
   ];
 
   const linkStyle = (href: string) => ({
     textDecoration: "none",
-    color: pathname === href ? "pink.400" : "gray.800",
+    color: pathname === href ? "pink.400" : "gray.400",
     fontWeight: pathname === href ? "bold" : "medium",
     _hover: {
       color: "pink.400",
@@ -108,7 +108,9 @@ export const Header = () => {
           onClick={() => setIsOpen(!isOpen)}
           variant="ghost"
           fontSize="22px"
-          color="gray.800"
+          color="black"
+          borderColor={"pink.400"}
+          bgColor="white"
           _hover={{ bg: "gray.100" }}
           _active={{ bg: "gray.200" }}
         />

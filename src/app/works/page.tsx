@@ -11,9 +11,10 @@ export default function Works() {
         <Box>
             <HeroTemplate
                 title="Works"
-                subtitle="Check out some of the amazing projects we’ve built"
-                buttonText="View Portfolio"
-                inlineImage="/images/services-illustration.svg"
+                subtitle="Check out some of the amazing projects I have worked on"
+                // buttonText="View Portfolio"
+                bgImage="/images/works.png"
+
             />
         </Box>
       </main>
