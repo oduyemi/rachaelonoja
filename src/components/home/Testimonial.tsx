@@ -109,8 +109,7 @@ export const TestimonialSection = () => {
             {testimonials[activeIndex].content && (
               <>
                 <Text fontSize={{ base: "md", md: "lg" }} color="#555">
-                  {/* eslint-disable-line @typescript-eslint/no-unused-vars */}
-                  "{testimonials[activeIndex].content}"
+                  &ldquo;{testimonials[activeIndex].content}&rdquo;
                 </Text>
                 <Text fontWeight="bold" color="#FF7EB9">
                   — {testimonials[activeIndex].author}

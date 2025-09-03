@@ -13,8 +13,8 @@ interface HeroProps {
   subtitle: string;
   buttonText?: string;
   onButtonClick?: () => void;
-  bgImage?: string; // optional background image
-  inlineImage?: string; // optional inline illustration
+  bgImage?: string; 
+  inlineImage?: string; 
 }
 
 export const HeroTemplate = ({
