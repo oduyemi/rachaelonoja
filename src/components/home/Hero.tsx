@@ -1,13 +1,15 @@
 "use client";
-import { Box, Flex, Heading, Text, Button, VStack, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Button, VStack, useBreakpointValue, HStack, Link } from "@chakra-ui/react";
+import type { SystemStyleObject } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
 
 const MotionBox = motion(Box);
+type HeadingSizes = "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl";
 
 export const Hero = () => {
-  const headingSize = useBreakpointValue({ base: "2xl", md: "3xl", lg: "4xl" });
+  const headingSize = useBreakpointValue<HeadingSizes>({ base: "2xl", md: "3xl" }) ?? "2xl";
   const containerDirection = useBreakpointValue({ base: "column-reverse", md: "row" });
 
   return (
@@ -29,7 +31,7 @@ export const Hero = () => {
           transition={{ duration: 1 }}
           maxW={{ base: "100%", md: "50%" }}
         >
-          <VStack align="flex-start" spacing={4}>
+          <VStack align="flex-start" gap={4}>
             <Text fontSize={{ base: "sm", md: "md" }} letterSpacing="wider" color="gray.500">
               Rachael Onoja – Education Technology Consultant
             </Text>
@@ -64,25 +66,29 @@ export const Hero = () => {
               With over 5 years of experience, I help organizations create strategies, programs, and policies that scale globally and leave a lasting impact in education technology.
             </Text>
 
-            <Button
-              mt={6}
-              size="lg"
-              py={6}
-              px={8}
-              borderRadius="full"
-              bgGradient="linear(to-r, #FF7EB9, #FFB6B9)"
-              color="white"
-              fontWeight="bold"
-              rightIcon={<FaArrowRight />}
-              _hover={{
-                transform: "scale(1.05)",
-                bgGradient: "linear(to-r, #FFB6B9, #FFDAC1)",
-                boxShadow: "xl",
-              }}
-              transition="all 0.3s"
-            >
-              Collaborate With Me
-            </Button>
+            <Link href="" _hover={{ textDecoration: "none" }}>
+              <Button
+                mt={6}
+                size="lg"
+                py={6}
+                px={8}
+                borderRadius="full"
+                bgGradient="linear(to-r, #FF7EB9, #FFB6B9)"
+                color="white"
+                fontWeight="bold"
+                _hover={{
+                  transform: "scale(1.05)",
+                  bgGradient: "linear(to-r, #FFB6B9, #FFDAC1)",
+                  boxShadow: "xl",
+                }}
+                transition="all 0.3s"
+              >
+                <HStack gap={2}>
+                  <Text>Collaborate With Me</Text>
+                  <FaArrowRight />
+                </HStack>
+              </Button>
+            </Link>
           </VStack>
         </MotionBox>
 

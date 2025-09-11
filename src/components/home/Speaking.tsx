@@ -41,7 +41,7 @@ export const FeaturesAndSpeakingEngagements = () => {
       <Box position="absolute" bottom="-120px" right="-100px" w="250px" h="250px" bgGradient="radial(circle, #FFD6C0 0%, #FFDAC1 100%)" borderRadius="full" filter="blur(140px)" zIndex={0} />
 
       {/* Section Intro */}
-      <VStack spacing={6} textAlign="center" mb={16} zIndex={1} position="relative">
+      <VStack gap={6} textAlign="center" mb={16} zIndex={1} position="relative">
         <Heading fontSize={{ base: "3xl", md: "4xl" }} fontWeight="extrabold" bgGradient="linear(to-r, #FF7EB9, #FFD6C0)" bgClip="text">
           Features & Speaking Engagements
         </Heading>
@@ -51,7 +51,7 @@ export const FeaturesAndSpeakingEngagements = () => {
       </VStack>
 
       {/* Videos Grid */}
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} zIndex={1} position="relative">
+      <SimpleGrid columns={{ base: 1, md: 3 }} gap={10} zIndex={1} position="relative">
         {visibleEngagements.map((engagement, idx) => (
           <MotionBox
             key={idx}
@@ -64,7 +64,7 @@ export const FeaturesAndSpeakingEngagements = () => {
             transition={{ delay: idx * 0.15, duration: 0.5 }}
             whileHover={{ scale: 1.05, boxShadow: "2xl" }}
           >
-            <VStack spacing={4} align="stretch">
+            <VStack gap={4} align="stretch">
               <Heading fontSize={{ base: "lg", md: "xl" }} bgGradient="linear(to-r, #FF7EB9, #FFD6C0)" bgClip="text">
                 {engagement.title}
               </Heading>

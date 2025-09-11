@@ -13,8 +13,8 @@ interface HeroProps {
   subtitle: string;
   buttonText?: string;
   onButtonClick?: () => void;
-  bgImage?: string; 
-  inlineImage?: string; 
+  bgImage?: string; // optional background image
+  inlineImage?: string; // optional inline illustration
 }
 
 export const HeroTemplate = ({
@@ -60,7 +60,7 @@ export const HeroTemplate = ({
       )}
 
       <VStack
-        spacing={4} // reduced spacing
+        gap={4} 
         maxW="3xl"
         position="relative"
         zIndex={1}
