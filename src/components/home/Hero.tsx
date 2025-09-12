@@ -89,7 +89,7 @@ export const Hero = () => {
                 transition="all 0.3s ease"
               >
                 <HStack gap={2}>
-                  <Text>Collaborate With Me</Text>
+                  <Text className="mt-3">Collaborate With Me</Text>
                   <FaArrowRight />
                 </HStack>
               </Button>
