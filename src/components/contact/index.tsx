@@ -20,11 +20,11 @@ export const ContactMe = () => {
   return (
     <Box
       bgGradient="linear(to-br, pink.50, white)"
-      py={{ base: 16, md: 24 }}
+      pb={{ base: 16, md: 24 }}
     >
       <Toaster position="top-center" />
 
-      <Container maxW="6xl">
+      <Container maxW="8xl">
         {/* Section Heading */}
         <VStack gap={4} textAlign="center" mb={12}>
           <Heading
@@ -36,7 +36,9 @@ export const ContactMe = () => {
             Contact Me
           </Heading>
           <Text color="gray.600" maxW="2xl" mx="auto" fontSize={{ base: "md", md: "lg" }}>
-            Have a project, opportunity, or collaboration in mind? Let’s connect.
+            Whether you’re scaling an EdTech venture, seeking guidance on global
+            market entry, or building impactful talent development programs —
+            let’s explore how I can support your vision.
           </Text>
         </VStack>
 

@@ -1,6 +1,7 @@
 "use client";
 import { MyStory } from "@/components/about/MyStory";
 import { HeroTemplate } from "@/components/HeroTemplate";
+import { Newsletter } from "@/components/Newsletter";
 import { Box } from "@chakra-ui/react";
 
 
@@ -19,6 +20,7 @@ export default function About() {
         <Box>
           <MyStory />
         </Box>
+        
       </main>
     </div>
   );

@@ -6,6 +6,7 @@ import { AboutSection } from "@/components/home/About";
 import { BrandsCarousel } from "@/components/home/Brands";
 import { FeaturesAndSpeakingEngagements } from "@/components/home/Speaking";
 import { TestimonialSection } from "@/components/home/Testimonial";
+import { BookWebinar } from "@/components/Webinar";
 
 
 
@@ -30,6 +31,9 @@ export default function Home() {
         </Box>
         <Box>
           <TestimonialSection />
+        </Box>
+        <Box>
+          <BookWebinar />
         </Box>
       </main>
     </div>

@@ -145,7 +145,7 @@ export const TestimonialSection = () => {
               {testimonials[activeIndex].content && (
                 <>
                   <Text
-                    fontSize={{ base: "md", md: "lg" }}
+                    fontSize={{ base: "sm", md: "md" }}
                     color="gray.700"
                     textAlign="center"
                   >

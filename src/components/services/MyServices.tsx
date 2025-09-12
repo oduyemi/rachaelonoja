@@ -43,7 +43,7 @@ const services = [
 
 export const MyServices = () => {
   return (
-    <Box as="section" py={{ base: 16, md: 24 }} bgGradient="linear(to-br, white, pink.50)">
+    <Box as="section" pb={{ base: 16, md: 24 }} bgGradient="linear(to-br, white, pink.50)">
       {/* Wrapper that prevents whitespace */}
       <Box maxW="7xl" mx="auto" px={{ base: 4, md: 8 }}>
         {/* Intro */}

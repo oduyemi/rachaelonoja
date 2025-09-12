@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Newsletter } from "../Newsletter";
+import { BookWebinar } from "../Webinar";
 
 const MotionBox = motion(Box);
 // const MotionHeading = motion(Heading);
@@ -159,6 +161,11 @@ export const MyStory = () => {
           </MotionBox>
         </SimpleGrid>
       ))}
+        <Box>
+          <BookWebinar />
+        </Box>
+          <Box mb={10}>
+        </Box>
 
       {/* Embedded Videos */}
       <MotionBox
@@ -200,7 +207,7 @@ export const MyStory = () => {
             boxShadow="xl"
           />
         </SimpleGrid>
-        <Text textAlign="center" fontSize="lg" color="gray.700">
+        {/* <Text textAlign="center" fontSize="lg" color="gray.700">
           Still here? Check out my{" "}
           <ChakraLink href="/blog" color="pink.600" fontWeight="semibold">
             Blog
@@ -210,7 +217,9 @@ export const MyStory = () => {
             Work
           </ChakraLink>{" "}
           or connect with me.
-        </Text>
+        </Text> */}
+          <BookWebinar />
+          <Box mb={10}></Box>
       </MotionBox>
     </Box>
   );
