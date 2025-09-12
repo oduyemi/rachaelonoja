@@ -218,7 +218,7 @@ export const MyStory = () => {
           </ChakraLink>{" "}
           or connect with me.
         </Text> */}
-          <BookWebinar />
+          <Newsletter />
           <Box mb={10}></Box>
       </MotionBox>
     </Box>
