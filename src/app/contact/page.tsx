@@ -1,4 +1,5 @@
 "use client";
+import { ContactMe } from "@/components/contact";
 import { HeroTemplate } from "@/components/HeroTemplate";
 import { Box } from "@chakra-ui/react";
 
@@ -14,8 +15,9 @@ export default function Contact() {
                 subtitle="I’d love to hear from you. Let’s connect today"
                 bgImage="/images/contacthero.jpg"
                 />
-
-
+        </Box>
+        <Box>
+          <ContactMe />
         </Box>
       </main>
     </div>

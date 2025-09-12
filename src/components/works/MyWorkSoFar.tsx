@@ -89,7 +89,7 @@ export const MyWorkSoFar = () => {
   ];
 
   return (
-    <Box as="section" py={{ base: 20, md: 28 }} bg="white" w="100%">
+    <Box as="section" pb={{ base: 20, md: 28 }} bg="white" w="100%">
       <Heading
         as="h2"
         textAlign="center"

@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
+// const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
 const Iframe = chakra("iframe");
 
@@ -52,7 +52,7 @@ export const MyStory = () => {
 
       {/* Intro */}
       <VStack gap={4} mb={16} textAlign="center" px={{ base: 6, md: 12 }}>
-        <MotionHeading
+        {/* <MotionHeading
           fontSize={{ base: "3xl", md: "5xl" }}
           fontWeight="extrabold"
           bgGradient="linear(to-r, pink.500, orange.300)"
@@ -63,7 +63,7 @@ export const MyStory = () => {
           transition={{ duration: 0.8 }}
         >
           My Story
-        </MotionHeading>
+        </MotionHeading> */}
         <MotionText
           fontSize={{ base: "md", md: "xl" }}
           color="gray.700"

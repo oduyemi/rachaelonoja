@@ -66,7 +66,7 @@ export const TestimonialSection = () => {
         left="-80px"
         w="220px"
         h="220px"
-        bgGradient="radial(circle, #FFB6B9 0%, #FF7EB9 100%)"
+        bgGradient="radial(circle, #FFB6B9 0%, pink.600 100%)"
         borderRadius="full"
         filter="blur(120px)"
         zIndex={0}
@@ -88,7 +88,7 @@ export const TestimonialSection = () => {
         <Heading
           fontSize={{ base: "3xl", md: "4xl" }}
           fontWeight="extrabold"
-          bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
+          bgGradient="linear(to-r, pink.600, #FFD6C0)"
           bgClip="text"
         >
           Testimonials
@@ -153,7 +153,7 @@ export const TestimonialSection = () => {
                   </Text>
                   <Text
                     fontWeight="bold"
-                    color="#FF7EB9"
+                    color="pink.600"
                     textAlign="center"
                   >
                     — {testimonials[activeIndex].author}

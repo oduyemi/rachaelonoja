@@ -81,7 +81,7 @@ export const AboutSection = () => {
         left={{ base: -40, md: -100 }}
         w={{ base: "140px", md: "220px" }}
         h={{ base: "140px", md: "220px" }}
-        bgGradient="radial(circle, #FFB6B9 0%, #FF7EB9 100%)"
+        bgGradient="radial(circle, #FFB6B9 0%, pink.600 100%)"
         borderRadius="full"
         filter="blur(80px)"
         opacity={0.6}
@@ -138,7 +138,7 @@ export const AboutSection = () => {
               <Heading size={headingSize} fontWeight="extrabold" lineHeight={1.1}>
                 <Text
                   as="span"
-                  bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
+                  bgGradient="linear(to-r, pink.600, #FFD6C0)"
                   bgClip="text"
                 >
                   Hi, I am Rachael
@@ -166,7 +166,7 @@ export const AboutSection = () => {
                   <Button
                     size="lg"
                     borderRadius="full"
-                    bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
+                    bgGradient="linear(to-r, pink.600, #FFD6C0)"
                     color="white"
                     fontWeight="bold"
                     px={7}
@@ -189,8 +189,8 @@ export const AboutSection = () => {
                   borderRadius="full"
                   px={7}
                   py={6}
-                  borderColor="#FF7EB9"
-                  color="#FF7EB9"
+                  borderColor="pink.600"
+                  color="pink.600"
                   _hover={{
                     bg: "rgba(255,126,185,0.08)",
                     transform: "scale(1.03)",
@@ -219,7 +219,7 @@ export const AboutSection = () => {
                     borderRadius="full"
                     bgGradient={
                       activeIndex === idx
-                        ? "linear(to-r, #FF7EB9, #FFD6C0)"
+                        ? "linear(to-r, pink.600, #FFD6C0)"
                         : undefined
                     }
                     color={activeIndex === idx ? "white" : "#333"}
@@ -256,7 +256,7 @@ export const AboutSection = () => {
               mx="auto"
             >
               <VStack gap={5} align="flex-start">
-                <Heading size="md" color="#FF7EB9">
+                <Heading size="md" color="pink.600">
                   {focusAreas[activeIndex].title}
                 </Heading>
                 <Text color="gray.700" fontSize={{ base: "md", md: "lg" }}>
@@ -270,7 +270,7 @@ export const AboutSection = () => {
                   <Button
                     size="md"
                     borderRadius="full"
-                    bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
+                    bgGradient="linear(to-r, pink.600, #FFD6C0)"
                     color="white"
                     fontWeight="bold"
                     px={6}

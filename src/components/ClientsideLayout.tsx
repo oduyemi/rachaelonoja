@@ -3,7 +3,8 @@ import { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { Box } from "@chakra-ui/react";
 import { Header } from "@/navigation/Header";
-// import { Footer } from "@/navigation/Footer";
+import { Footer } from "@/navigation/Footer";
+import { CallButton } from "./Call";
 
 export const ClientSideLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
@@ -32,9 +33,12 @@ export const ClientSideLayout = ({ children }: { children: React.ReactNode }) =>
       </Box>
 
       {!isAdminRoute && (
-        <Box mt={5}>
-          {/* <Footer /> */}
-        </Box>
+        <>
+          <CallButton />
+          <Box mt={5}>
+            <Footer />
+          </Box>
+        </>
       )}
     </>
   );

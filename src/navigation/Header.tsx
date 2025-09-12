@@ -50,10 +50,10 @@ export const Header = () => {
 
   const linkStyle = (href: string) => ({
     textDecoration: "none",
-    color: pathname === href ? "pink.400" : "gray.400",
+    color: pathname === href ? "pink.600" : "gray.400",
     fontWeight: pathname === href ? "bold" : "medium",
     _hover: {
-      color: "pink.400",
+      color: "pink.600",
       textDecoration: "none",
     },
   });
@@ -108,7 +108,7 @@ export const Header = () => {
           color="teal"
           bgColor="transparent"
           _hover={{ color: "gray.100" }}
-          _active={{ color: "pink.400" }}
+          _active={{ color: "pink.600" }}
         >
           {isOpen ? <FaTimes fontSize="22px" /> : <FaBars fontSize="22px" />}
         </IconButton>

@@ -1,135 +1,145 @@
 "use client";
 import {
   Box,
-  Container,
   Heading,
   Text,
   VStack,
-  SimpleGrid,
-  Image as ChakraImage,
+  Flex,
+  Icon,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { FaUserTie, FaProjectDiagram, FaGlobe, FaMicrophone } from "react-icons/fa";
 
-const MotionBox = motion(Box);
+const MotionHeading = motion(Heading);
+const MotionText = motion(Text);
+const MotionFlex = motion(Flex);
 
-interface ServiceItemProps {
-  subheading: string;
-  heading: string;
-  media: string;
-  text: string[];
-  reverse?: boolean;
-}
-
-const ServiceItem = ({ subheading, heading, media, text, reverse }: ServiceItemProps) => (
-  <SimpleGrid
-    columns={{ base: 1, md: 2 }}
-    gap={10}
-    alignItems="center"
-    mb={20}
-    direction={reverse ? "row-reverse" : "row"}
-  >
-    {/* Text */}
-    <MotionBox
-      initial={{ x: reverse ? 50 : -50, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-    >
-      <Text fontSize="sm" textTransform="uppercase" fontWeight="bold" color="pink.500" mb={2}>
-        {subheading}
-      </Text>
-      <Heading as="h3" fontSize={{ base: "2xl", md: "3xl" }} mb={4} color="pink.600">
-        {heading}
-      </Heading>
-      {text.map((t, idx) => (
-        <Text key={idx} mb={4} color="gray.700" fontSize={{ base: "md", md: "lg" }}>
-          {t}
-        </Text>
-      ))}
-    </MotionBox>
-
-    {/* Media */}
-    <MotionBox
-      initial={{ x: reverse ? -50 : 50, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-    >
-      <ChakraImage
-        src={media}
-        alt={heading}
-        borderRadius="2xl"
-        shadow="xl"
-        w="100%"
-        h="auto"
-      />
-    </MotionBox>
-  </SimpleGrid>
-);
+const services = [
+  {
+    subheading: "High Achieving GenZ Professionals",
+    heading: "Career Design & Scaling",
+    icon: FaUserTie,
+    text: "I’ve coached high-achieving GenZ and late-millennial professionals to gain visibility, earn well-deserved promotions, and achieve up to 5–8x salary growth in their careers.",
+  },
+  {
+    subheading: "High Impact Businesses",
+    heading: "Program Strategy & Implementation",
+    icon: FaProjectDiagram,
+    text: "I designed and implemented five innovative talent development programs for EdTech businesses, ran seven workshops to transform delivery teams into high-performing units with a 35% productivity boost, and consulted with leaders on building a strong culture of innovation.",
+  },
+  {
+    subheading: "Ambitious Business Owners",
+    heading: "Global Expansion Strategy",
+    icon: FaGlobe,
+    text: "I’ve helped businesses craft market-proof strategies for expansion into markets such as Nigeria, Ghana, Rwanda, Kenya, the USA, and the UK, increasing operational capacity by 35% and driving 28% revenue growth.",
+  },
+  {
+    subheading: "Community",
+    heading: "Speaking Engagements",
+    icon: FaMicrophone,
+    text: "I’ve spoken at over 150 events with raving reviews, delivering insights on strategic career growth, global market expansion, balanced living, and the role of alternative education in driving impact for individuals and economies.",
+  },
+];
 
 export const MyServices = () => {
   return (
-    <Box as="section" py={{ base: 16, md: 24 }} bg="gray.50">
-      <Container maxW="6xl">
+    <Box as="section" py={{ base: 16, md: 24 }} bgGradient="linear(to-br, white, pink.50)">
+      {/* Wrapper that prevents whitespace */}
+      <Box maxW="7xl" mx="auto" px={{ base: 4, md: 8 }}>
         {/* Intro */}
-        <VStack gap={4} mb={16} textAlign="center">
-          <Heading
-            fontSize={{ base: "3xl", md: "4xl" }}
+        <VStack gap={6} mb={16} textAlign="center">
+          <MotionHeading
+            fontSize={{ base: "3xl", md: "5xl" }}
             fontWeight="extrabold"
             bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
             bgClip="text"
+            initial={{ y: -20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            Ways I Can Help You...
-          </Heading>
-          <Text maxW="800px" fontSize={{ base: "md", md: "lg" }} color="gray.700">
-            Do you need someone who will approach your project or career with empathy and candour,
-            delivering strategies that truly work? Here’s how I partner with professionals and businesses
-            to create lasting impact.
-          </Text>
+            Ways I Can Help You…
+          </MotionHeading>
+          <MotionText
+            fontSize={{ base: "md", md: "lg" }}
+            color="gray.600"
+            maxW="2xl"
+            mx="auto"
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            From strategic career growth to scaling businesses globally — here’s how I bring impact.
+          </MotionText>
         </VStack>
 
-        {/* Service Items */}
-        <ServiceItem
-          subheading="High-Achieving GenZ Professionals"
-          heading="Career Design & Scaling"
-          media="/images/achieve.png"
-          text={[
-            "I’ve coached ambitious GenZ and late-millennial professionals to gain visibility, secure promotions, and achieve up to 5–8x salary growth.",
-          ]}
-        />
+        {/* Services */}
+        <VStack gap={14}>
+          {services.map((service, idx) => (
+            <MotionFlex
+                key={idx}
+                direction={{ base: "column", md: idx % 2 === 1 ? "row-reverse" : "row" }}
+                align="center"
+                justify="space-between"
+                w="100%"
+                gap={10}
+                p={8}
+                borderRadius="2xl"
+                bg="white"
+                shadow="lg"
+                _hover={{
+                    transform: "translateY(-6px)",
+                    shadow: "xl",
+                }}
+                // animate={{ scale: 1.2, x: 100 }}
+                transition={{
+                    scale: { type: "spring", damping: 10, stiffness: 100 },
+                    x: { duration: 0.5, ease: "easeInOut" }
+                }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+            >
+              {/* Icon */}
+              <Flex
+                flexShrink={0}
+                w={20}
+                h={20}
+                borderRadius="full"
+                bgGradient="linear(to-br, #FF7EB9, #FFD6C0)"
+                align="center"
+                justify="center"
+                color="white"
+                fontSize="2xl"
+                shadow="md"
+              >
+                <Icon as={service.icon} boxSize={10} />
+              </Flex>
 
-        <ServiceItem
-          subheading="High-Impact Businesses"
-          heading="Program Strategy & Implementation"
-          media="/images/programs.png"
-          text={[
-            "Designed and implemented 5 innovative talent development programs for EdTech businesses.",
-            "Facilitated 7 workshops that transformed program delivery teams into high-performing units, boosting productivity by 35%.",
-            "Consulted with business owners to foster a culture of program innovation and excellence.",
-          ]}
-          reverse
-        />
-
-        <ServiceItem
-          subheading="Ambitious Business Owners"
-          heading="Global Expansion Strategy"
-          media="/images/expand.png"
-          text={[
-            "Supported businesses in crafting market-proof strategies to expand into new regions including Nigeria, Ghana, Rwanda, Kenya, the USA, and the UK.",
-            "Increased operational capacity by 35% and revenue growth by 28% through structured expansion roadmaps.",
-          ]}
-        />
-
-        <ServiceItem
-          subheading="Community"
-          heading="Speaking Engagements"
-          media="/images/rach1.png"
-          text={[
-            "Delivered over 150 events with outstanding feedback, sharing insights on career growth, global market expansion, balanced living, and alternative education.",
-          ]}
-          reverse
-        />
-      </Container>
+              {/* Text */}
+              <Box flex="1">
+                <Text
+                  fontSize="sm"
+                  textTransform="uppercase"
+                  fontWeight="semibold"
+                  letterSpacing="wider"
+                  color="pink.500"
+                  mb={2}
+                >
+                  {service.subheading}
+                </Text>
+                <Heading fontSize={{ base: "2xl", md: "3xl" }} mb={4} color="gray.800">
+                  {service.heading}
+                </Heading>
+                <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" lineHeight={1.7}>
+                  {service.text}
+                </Text>
+              </Box>
+            </MotionFlex>
+          ))}
+        </VStack>
+      </Box>
     </Box>
   );
 };
