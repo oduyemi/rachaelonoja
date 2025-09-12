@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div>
       <main>
-        <Box>
+        <Box mt={8}>
           <Hero />
         </Box>
         <Box>
