@@ -66,7 +66,7 @@ export const Hero = () => {
               Innovation
             </Heading>
 
-            <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" mt={2} lineHeight={1.7} maxW="600px">
+            <Text fontSize={{ base: "sm", md: "md" }} color="gray.600" mt={2} lineHeight={1.7} maxW="600px">
               With over 5 years of experience, I help organizations create strategies, programs, and policies that scale globally and leave a lasting impact in education technology.
             </Text>
 

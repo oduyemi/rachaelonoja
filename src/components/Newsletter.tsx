@@ -69,7 +69,7 @@ export const Newsletter = () => {
 
           <Text
             color="gray.700"
-            fontSize={{ base: "md", md: "lg" }}
+            fontSize={{ base: "sm", md: "md" }}
             maxW="2xl"
           >
             Join a community of forward-thinkers in education and career

@@ -94,7 +94,7 @@ export const TestimonialSection = () => {
           Testimonials
         </Heading>
         <Text
-          fontSize={{ base: "md", md: "lg" }}
+          fontSize={{ base: "sm", md: "md" }}
           maxW="800px"
           color="gray.600"
         >

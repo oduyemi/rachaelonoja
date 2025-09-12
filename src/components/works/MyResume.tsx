@@ -65,7 +65,7 @@ export const MyResume = () => {
 
           {/* Description */}
           <MotionText
-            fontSize={{ base: "md", md: "lg" }}
+            fontSize={{ base: "sm", md: "md" }}
             color="gray.700"
             maxW="2xl"
             mx="auto" // centers inside container

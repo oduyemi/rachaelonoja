@@ -130,10 +130,10 @@ export const MyStory = () => {
             <Heading as="h3" fontSize="2xl" mb={4} color="pink.600">
               {section.title}
             </Heading>
-            <Text mb={4} color="gray.700" fontSize="lg">
+            <Text mb={4} color="gray.700" fontSize="md">
               {section.text1}
             </Text>
-            <Text color="gray.700" fontSize="lg">
+            <Text color="gray.700" fontSize="md">
               {section.text2}
             </Text>
           </MotionBox>

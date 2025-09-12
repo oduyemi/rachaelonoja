@@ -145,14 +145,14 @@ export const AboutSection = () => {
                 </Text>
               </Heading>
 
-              <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" maxW="680px">
+              <Text fontSize={{ base: "sm", md: "md" }} color="gray.600" maxW="680px">
                 As a versatile education technology business consultant, I have
                 spent over half a decade designing impactful program strategies
                 and policies — developing the talent capacity of over half a
                 million professionals.
               </Text>
 
-              <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" maxW="680px">
+              <Text fontSize={{ base: "sm", md: "md" }} color="gray.600" maxW="680px">
                 See how I&apos;ve impacted businesses, supported governments,
                 expanded markets, and promoted #BalanceUnleashed.
               </Text>
@@ -259,7 +259,7 @@ export const AboutSection = () => {
                 <Heading size="md" color="pink.600">
                   {focusAreas[activeIndex].title}
                 </Heading>
-                <Text color="gray.700" fontSize={{ base: "md", md: "lg" }}>
+                <Text color="gray.700" fontSize={{ base: "sm", md: "md" }}>
                   {focusAreas[activeIndex].description}
                 </Text>
                 <Link

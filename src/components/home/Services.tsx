@@ -83,7 +83,7 @@ export const Ways = () => {
         >
           Ways I Can Help You
         </Heading>
-        <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" maxW="700px">
+        <Text fontSize={{ base: "sm", md: "md" }} color="gray.600" maxW="700px">
           I am fuelled by the belief that <Text as="span" color="pink.600">Education</Text> and{" "}
           <Text as="span" color="#FFD6C0">Technology</Text> are true global equalisers. Here’s how I partner with individuals and businesses to create impact.
         </Text>

@@ -83,7 +83,7 @@ export const FeaturesAndSpeakingEngagements = () => {
         >
           Features & Speaking Engagements
         </Heading>
-        <Text fontSize={{ base: "md", md: "lg" }} maxW="850px" color="gray.600" lineHeight={1.7}>
+        <Text fontSize={{ base: "sm", md: "md" }} maxW="850px" color="gray.600" lineHeight={1.7}>
           Rachael has been driving innovation in EdTech, bridging academia and business, and mentoring startups to scale successfully. Here are some of her impactful engagements:
         </Text>
       </VStack>

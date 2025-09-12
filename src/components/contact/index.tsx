@@ -35,7 +35,7 @@ export const ContactMe = () => {
           >
             Contact Me
           </Heading>
-          <Text color="gray.600" maxW="2xl" mx="auto" fontSize={{ base: "md", md: "lg" }}>
+          <Text color="gray.600" maxW="2xl" mx="auto" fontSize={{ base: "sm", md: "md" }}>
             Whether you’re scaling an EdTech venture, seeking guidance on global
             market entry, or building impactful talent development programs —
             let’s explore how I can support your vision.

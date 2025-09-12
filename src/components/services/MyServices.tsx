@@ -61,7 +61,7 @@ export const MyServices = () => {
             Ways I Can Help You…
           </MotionHeading>
           <MotionText
-            fontSize={{ base: "md", md: "lg" }}
+            fontSize={{ base: "sm", md: "md" }}
             color="gray.600"
             maxW="2xl"
             mx="auto"
@@ -132,7 +132,7 @@ export const MyServices = () => {
                 <Heading fontSize={{ base: "2xl", md: "3xl" }} mb={4} color="gray.800">
                   {service.heading}
                 </Heading>
-                <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" lineHeight={1.7}>
+                <Text fontSize={{ base: "sm", md: "md" }} color="gray.600" lineHeight={1.7}>
                   {service.text}
                 </Text>
               </Box>
