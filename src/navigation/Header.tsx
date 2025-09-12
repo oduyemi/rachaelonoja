@@ -105,11 +105,10 @@ export const Header = () => {
           display={{ base: "block", md: "none" }}
           onClick={() => setIsOpen(!isOpen)}
           variant="ghost"
-          color="black"
-          borderColor="pink.400"
-          bgColor="white"
-          _hover={{ bg: "gray.100" }}
-          _active={{ bg: "gray.200" }}
+          color="teal"
+          bgColor="transparent"
+          _hover={{ color: "gray.100" }}
+          _active={{ color: "pink.400" }}
         >
           {isOpen ? <FaTimes fontSize="22px" /> : <FaBars fontSize="22px" />}
         </IconButton>

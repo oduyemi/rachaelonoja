@@ -15,3 +15,6 @@ body {
   margin: 0;
 }
 
+.noDecor {
+  text-decoration: none !important;
+}

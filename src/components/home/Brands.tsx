@@ -1,5 +1,11 @@
 "use client";
-import { Box, Flex, Image as ChakraImage, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Image as ChakraImage,
+  useBreakpointValue,
+  Heading,
+} from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
@@ -7,7 +13,7 @@ const MotionFlex = motion(Flex);
 
 interface Brand {
   name: string;
-  logo: string; 
+  logo: string;
 }
 
 const brands: Brand[] = [
@@ -21,34 +27,56 @@ const brands: Brand[] = [
 
 export const BrandsCarousel = () => {
   const controls = useAnimation();
-  const logoSize = useBreakpointValue({ base: "80px", md: "120px" });
+  const logoSize = useBreakpointValue({ base: "70px", md: "110px", lg: "130px" });
 
   useEffect(() => {
     controls.start({
       x: ["0%", "-50%"],
       transition: {
-        x: { repeat: Infinity, repeatType: "loop", duration: 20, ease: "linear" },
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 25,
+          ease: "linear",
+        },
       },
     });
   }, [controls]);
 
-  // Duplicate brands to create infinite scroll illusion
-  const displayBrands = [...brands, ...brands];
+  // Duplicate brands more for seamless infinite scroll
+  const displayBrands = [...brands, ...brands, ...brands];
 
   return (
-    <Box as="section" bg="#fff" py={{ base: 12, md: 24 }} overflow="hidden">
-      <Flex justify="center" mb={8}>
-        <Box fontWeight="extrabold" fontSize={{ base: "2xl", md: "4xl" }} textAlign="center">
+    <Box
+      as="section"
+      bgGradient="linear(to-b, white, #fff7fb)"
+      py={{ base: 12, md: 24 }}
+      overflow="hidden"
+      position="relative"
+    >
+      {/* Heading */}
+      <Flex justify="center" mb={10} px={4}>
+        <Heading
+          as="h2"
+          fontWeight="extrabold"
+          fontSize={{ base: "2xl", md: "4xl" }}
+          textAlign="center"
+          lineHeight="shorter"
+          bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
+          bgClip="text"
+        >
           Brands I Have Impacted
-        </Box>
+        </Heading>
       </Flex>
 
+      {/* Carousel */}
       <Box overflow="hidden" w="full" position="relative">
         <MotionFlex
           animate={controls}
-          gap={{ base: 8, md: 16 }}
+          gap={{ base: 8, md: 16, lg: 20 }}
           w="max-content"
           align="center"
+          px={{ base: 4, md: 8 }}
         >
           {displayBrands.map((brand, idx) => (
             <Box key={idx} flex="0 0 auto">
@@ -57,9 +85,15 @@ export const BrandsCarousel = () => {
                 alt={brand.name}
                 boxSize={logoSize}
                 objectFit="contain"
-                filter="grayscale(60%)"
-                _hover={{ filter: "grayscale(0%)", transform: "scale(1.1)" }}
-                transition="all 0.3s ease-in-out"
+                filter="grayscale(80%)"
+                opacity={0.8}
+                transition="all 0.35s ease-in-out"
+                _hover={{
+                  filter: "grayscale(0%)",
+                  opacity: 1,
+                  transform: "scale(1.1)",
+                  boxShadow: "0 6px 20px rgba(0,0,0,0.12)",
+                }}
               />
             </Box>
           ))}

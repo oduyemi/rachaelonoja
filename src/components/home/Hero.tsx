@@ -8,64 +8,69 @@ const MotionBox = motion(Box);
 type HeadingSizes = "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl";
 
 export const Hero = () => {
-  const headingSize = useBreakpointValue<HeadingSizes>({ base: "2xl", md: "3xl" }) ?? "2xl";
+  const headingSize = useBreakpointValue<HeadingSizes>({ base: "2xl", md: "4xl", lg: "5xl" }) ?? "2xl";
   const containerDirection = useBreakpointValue({ base: "column-reverse", md: "row" });
 
   return (
-    <Box as="section" bg="#ffffff" color="#333" minH="50vh" overflow="hidden">
+    <Box as="section" bg="linear-gradient(135deg, #ffffff 0%, #fafafa 100%)" color="gray.800" minH="70vh" overflow="hidden">
       <Flex
-        className="container"
         w="100%"
-        px={{ base: 6, md: 16 }}
-        py={{ base: 12, md: 24 }}
+        maxW="1280px"
+        mx="auto"
+        px={{ base: 6, md: 12, lg: 16 }}
+        py={{ base: 12, md: 20, lg: 28 }}
         direction={containerDirection}
         justify="space-between"
         align="center"
-        gap={{ base: 12, md: 8 }}
+        gap={{ base: 12, md: 10 }}
       >
-        {/* Left Text */}
+        {/* Left Content */}
         <MotionBox
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.9 }}
           maxW={{ base: "100%", md: "50%" }}
         >
-          <VStack align="flex-start" gap={4}>
+          <VStack align="flex-start" gap={5}>
             <Text fontSize={{ base: "sm", md: "md" }} letterSpacing="wider" color="gray.500">
               Rachael Onoja – Education Technology Consultant
             </Text>
 
-            <Heading size={headingSize} fontWeight="extrabold" lineHeight="1.2">
-              Designing{" "}
+            <Heading size={headingSize} fontWeight="black" lineHeight="1.2">
+              Designing {" "}
               <Text
                 as="span"
-                bgGradient="linear(to-r, #FF7EB9, #FFB6B9)"
+                bgGradient="linear(to-r, #FF006E, #FF7EB9)"
                 bgClip="text"
-                textShadow="0px 2px 5px rgba(255, 182, 185, 0.6)"
+                color="transparent"
+                fontWeight="extrabold"
+                textShadow="0px 2px 4px rgba(255,0,0,0.25)"
               >
                 Impactful
               </Text>{" "}
               Programs
             </Heading>
 
-            <Heading size={headingSize} fontWeight="extrabold" lineHeight="1.2">
-              Driving{" "}
+            <Heading size={headingSize} fontWeight="black" lineHeight="1.2">
+              Driving {" "}
               <Text
                 as="span"
-                bgGradient="linear(to-r, #FFDAC1, #FFD6C0)"
+                bgGradient="linear(to-r, #FF8C00, #FFB800)"
                 bgClip="text"
-                textShadow="0px 2px 5px rgba(255, 218, 193, 0.6)"
+                color="transparent"
+                fontWeight="extrabold"
+                textShadow="0px 2px 4px rgba(222, 0, 93,0.25)"
               >
                 EdTech
               </Text>{" "}
               Innovation
             </Heading>
 
-            <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" mt={2}>
+            <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" mt={2} lineHeight={1.7} maxW="600px">
               With over 5 years of experience, I help organizations create strategies, programs, and policies that scale globally and leave a lasting impact in education technology.
             </Text>
 
-            <Link href="" _hover={{ textDecoration: "none" }}>
+            <Link href="" textDecoration="none" _hover={{ textDecoration: "none" }}>
               <Button
                 mt={6}
                 size="lg"
@@ -75,12 +80,13 @@ export const Hero = () => {
                 bgGradient="linear(to-r, #FF7EB9, #FFB6B9)"
                 color="white"
                 fontWeight="bold"
+                boxShadow="md"
                 _hover={{
-                  transform: "scale(1.05)",
-                  bgGradient: "linear(to-r, #FFB6B9, #FFDAC1)",
+                  transform: "translateY(-4px) scale(1.05)",
+                  bgGradient: "linear(to-r, #FFB6B9, #FFD6C0)",
                   boxShadow: "xl",
                 }}
-                transition="all 0.3s"
+                transition="all 0.3s ease"
               >
                 <HStack gap={2}>
                   <Text>Collaborate With Me</Text>
@@ -95,7 +101,7 @@ export const Hero = () => {
         <MotionBox
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1 }}
           w={{ base: "95%", md: "50%" }}
           maxW="600px"
           position="relative"
@@ -103,28 +109,30 @@ export const Hero = () => {
           {/* Floating Gradient Shapes */}
           <Box
             position="absolute"
-            top="-40px"
-            left="-40px"
-            w="150px"
-            h="150px"
+            top="-50px"
+            left="-50px"
+            w="180px"
+            h="180px"
             bgGradient="radial(circle, #FFB6B9 0%, #FF7EB9 100%)"
-            borderRadius="full"
-            filter="blur(70px)"
-            zIndex={0}
-          />
-          <Box
-            position="absolute"
-            bottom="-50px"
-            right="-60px"
-            w="200px"
-            h="200px"
-            bgGradient="radial(circle, #FFD6C0 0%, #FFDAC1 100%)"
             borderRadius="full"
             filter="blur(90px)"
             zIndex={0}
+            opacity={0.5}
+          />
+          <Box
+            position="absolute"
+            bottom="-60px"
+            right="-70px"
+            w="220px"
+            h="220px"
+            bgGradient="radial(circle, #FFD6C0 0%, #FFDAC1 100%)"
+            borderRadius="full"
+            filter="blur(100px)"
+            zIndex={0}
+            opacity={0.5}
           />
 
-          <MotionBox whileHover={{ scale: 1.08 }} transition={{ duration: 0.5 }}>
+          <MotionBox whileHover={{ scale: 1.06 }} transition={{ duration: 0.5 }}>
             <Image
               src="/images/homehero.png"
               alt="Rachael Onoja"

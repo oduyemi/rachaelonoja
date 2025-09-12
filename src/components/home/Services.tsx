@@ -3,6 +3,7 @@ import { Box, Flex, Heading, Text, VStack, SimpleGrid, Link, useBreakpointValue 
 import { motion } from "framer-motion";
 
 type HeadingSizes = "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl";
+const MotionBox = motion(Box);
 const MotionLink = motion(Link);
 
 export const Ways = () => {

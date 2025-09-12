@@ -1,16 +1,23 @@
 "use client";
-import { Box, Flex, Heading, Text, VStack, Image as ChakraImage, Button, useBreakpointValue } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import {
+  Box,
+  Heading,
+  Text,
+  VStack,
+  Image as ChakraImage,
+  Flex,
+  useBreakpointValue,
+} from "@chakra-ui/react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const MotionBox = motion(Box);
 
 interface Testimonial {
   content?: string;
   author?: string;
-  image?: string; 
-  screenshot?: string; 
+  image?: string;
+  screenshot?: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -31,109 +38,148 @@ const testimonials: Testimonial[] = [
 
 export const TestimonialSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const cardWidth = useBreakpointValue({ base: "90%", md: "600px" });
+  const cardWidth = useBreakpointValue({ base: "95%", md: "700px" });
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
+  // Autoplay every 6s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) =>
+        prev === testimonials.length - 1 ? 0 : prev + 1
+      );
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <Box as="section" bg="#fff7fb" py={{ base: 20, md: 32 }} px={{ base: 6, md: 16 }} position="relative">
-      <VStack gap={8} textAlign="center" mb={12}>
-        <Heading fontSize={{ base: "3xl", md: "4xl" }} fontWeight="extrabold" bgGradient="linear(to-r, #FF7EB9, #FFD6C0)" bgClip="text">
+    <Box
+      as="section"
+      bg="#fff7fb"
+      py={{ base: 20, md: 32 }}
+      px={{ base: 6, md: 16 }}
+      position="relative"
+      overflow="hidden"
+    >
+      {/* Floating background accents */}
+      <Box
+        position="absolute"
+        top="-100px"
+        left="-80px"
+        w="220px"
+        h="220px"
+        bgGradient="radial(circle, #FFB6B9 0%, #FF7EB9 100%)"
+        borderRadius="full"
+        filter="blur(120px)"
+        zIndex={0}
+      />
+      <Box
+        position="absolute"
+        bottom="-120px"
+        right="-100px"
+        w="260px"
+        h="260px"
+        bgGradient="radial(circle, #FFD6C0 0%, #FFDAC1 100%)"
+        borderRadius="full"
+        filter="blur(130px)"
+        zIndex={0}
+      />
+
+      {/* Section header */}
+      <VStack gap={6} textAlign="center" mb={14} zIndex={1} position="relative">
+        <Heading
+          fontSize={{ base: "3xl", md: "4xl" }}
+          fontWeight="extrabold"
+          bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
+          bgClip="text"
+        >
           Testimonials
         </Heading>
-        <Text fontSize={{ base: "md", md: "lg" }} maxW="800px" color="gray.600">
+        <Text
+          fontSize={{ base: "md", md: "lg" }}
+          maxW="800px"
+          color="gray.600"
+        >
           Hear what professionals say about my impact and mentorship.
         </Text>
       </VStack>
 
-      <Flex justify="center" align="center" position="relative">
-        {/* Prev Button */}
-        <Button
-          onClick={handlePrev}
-          position="absolute"
-          left={0}
-          top="50%"
-          transform="translateY(-50%)"
-          zIndex={2}
-          colorScheme="pink"
-          borderRadius="full"
-          p={4}
-          _hover={{ bgGradient: "linear(to-r, #FF7EB9, #FFD6C0)", color: "white" }}
-        >
-          <FaArrowLeft />
-        </Button>
+      {/* Carousel */}
+      <Flex justify="center" align="center" position="relative" zIndex={1}>
+        <AnimatePresence mode="wait">
+          <MotionBox
+            key={activeIndex}
+            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -40, scale: 0.95 }}
+            transition={{ duration: 0.6 }}
+            bg="white"
+            borderRadius="2xl"
+            p={{ base: 6, md: 10 }}
+            shadow="2xl"
+            maxW={cardWidth}
+            w="full"
+          >
+            <VStack gap={6} align="center">
+              {testimonials[activeIndex].image && (
+                <ChakraImage
+                  src={testimonials[activeIndex].image}
+                  alt={testimonials[activeIndex].author}
+                  boxSize={{ base: "80px", md: "120px" }}
+                  borderRadius="full"
+                  objectFit="cover"
+                  shadow="lg"
+                />
+              )}
 
-        {/* Testimonial Card */}
-        <MotionBox
-          key={activeIndex}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          bg="white"
-          borderRadius="2xl"
-          p={{ base: 6, md: 10 }}
-          shadow="2xl"
-          maxW={cardWidth}
-        >
-          <VStack gap={6} align="flex-start">
-            {testimonials[activeIndex].image && (
-              <ChakraImage
-                src={testimonials[activeIndex].image}
-                alt={testimonials[activeIndex].author}
-                boxSize={{ base: "80px", md: "120px" }}
-                borderRadius="full"
-                objectFit="cover"
-                shadow="lg"
-                alignSelf="center"
-              />
-            )}
+              {testimonials[activeIndex].screenshot && (
+                <ChakraImage
+                  src={testimonials[activeIndex].screenshot}
+                  alt="Collage of testimonials"
+                  borderRadius="2xl"
+                  objectFit="cover"
+                  w="100%"
+                  h="auto"
+                  shadow="lg"
+                />
+              )}
 
-            {testimonials[activeIndex].screenshot && (
-              <ChakraImage
-                src={testimonials[activeIndex].screenshot}
-                alt="Collage of testimonials"
-                borderRadius="2xl"
-                objectFit="cover"
-                w="100%"
-                h="auto"
-              />
-            )}
-
-            {testimonials[activeIndex].content && (
-              <>
-                <Text fontSize={{ base: "md", md: "lg" }} color="#555">
-                  &ldquo;{testimonials[activeIndex].content}&rdquo;
-                </Text>
-                <Text fontWeight="bold" color="#FF7EB9">
-                  — {testimonials[activeIndex].author}
-                </Text>
-              </>
-            )}
-          </VStack>
-        </MotionBox>
-
-        {/* Next Button */}
-        <Button
-          onClick={handleNext}
-          position="absolute"
-          right={0}
-          top="50%"
-          transform="translateY(-50%)"
-          zIndex={2}
-          colorScheme="pink"
-          borderRadius="full"
-          p={4}
-          _hover={{ bgGradient: "linear(to-r, #FF7EB9, #FFD6C0)", color: "white" }}
-        >
-          <FaArrowRight />
-        </Button>
+              {testimonials[activeIndex].content && (
+                <>
+                  <Text
+                    fontSize={{ base: "md", md: "lg" }}
+                    color="gray.700"
+                    textAlign="center"
+                  >
+                    &ldquo;{testimonials[activeIndex].content}&rdquo;
+                  </Text>
+                  <Text
+                    fontWeight="bold"
+                    color="#FF7EB9"
+                    textAlign="center"
+                  >
+                    — {testimonials[activeIndex].author}
+                  </Text>
+                </>
+              )}
+            </VStack>
+          </MotionBox>
+        </AnimatePresence>
       </Flex>
+
+      {/* Dots Indicator */}
+      {/* <Flex justify="center" mt={8} gap={3}>
+        {testimonials.map((_, idx) => (
+          <Box
+            key={idx}
+            w={idx === activeIndex ? "12px" : "8px"}
+            h={idx === activeIndex ? "12px" : "8px"}
+            borderRadius="full"
+            bg={idx === activeIndex ? "pink.400" : "gray.300"}
+            transition="all 0.3s"
+            cursor="pointer"
+            onClick={() => setActiveIndex(idx)}
+          />
+        ))} */}
+      {/* </Flex> */}
     </Box>
   );
 };

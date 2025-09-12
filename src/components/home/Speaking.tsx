@@ -3,7 +3,6 @@ import { Box, Flex, Heading, Text, VStack, SimpleGrid, AspectRatio, Button } fro
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
-
 const MotionBox = motion(Box);
 
 interface SpeakingEngagement {
@@ -35,40 +34,86 @@ export const FeaturesAndSpeakingEngagements = () => {
   }, [showAll]);
 
   return (
-    <Box as="section" bg="#fff7fb" color="#333" py={{ base: 20, md: 32 }} px={{ base: 6, md: 16 }} position="relative" overflow="hidden">
-      {/* Soft floating shapes */}
-      <Box position="absolute" top="-100px" left="-100px" w="200px" h="200px" bgGradient="radial(circle, #FFB6B9 0%, #FF7EB9 100%)" borderRadius="full" filter="blur(120px)" zIndex={0} />
-      <Box position="absolute" bottom="-120px" right="-100px" w="250px" h="250px" bgGradient="radial(circle, #FFD6C0 0%, #FFDAC1 100%)" borderRadius="full" filter="blur(140px)" zIndex={0} />
+    <Box
+      as="section"
+      bg="linear-gradient(135deg, #fff7fb 0%, #ffffff 100%)"
+      color="#333"
+      py={{ base: 20, md: 32 }}
+      px={{ base: 6, md: 16 }}
+      position="relative"
+      overflow="hidden"
+    >
+      {/* Animated floating shapes */}
+      <MotionBox
+        position="absolute"
+        top="-120px"
+        left="-120px"
+        w={{ base: "180px", md: "250px" }}
+        h={{ base: "180px", md: "250px" }}
+        bgGradient="radial(circle, #FFB6B9 0%, #FF7EB9 100%)"
+        borderRadius="full"
+        filter="blur(120px)"
+        opacity={0.35}
+        animate={{ y: [0, 20, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        zIndex={0}
+      />
+      <MotionBox
+        position="absolute"
+        bottom="-140px"
+        right="-120px"
+        w={{ base: "220px", md: "300px" }}
+        h={{ base: "220px", md: "300px" }}
+        bgGradient="radial(circle, #FFD6C0 0%, #FFDAC1 100%)"
+        borderRadius="full"
+        filter="blur(140px)"
+        opacity={0.35}
+        animate={{ y: [0, -20, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        zIndex={0}
+      />
 
       {/* Section Intro */}
       <VStack gap={6} textAlign="center" mb={16} zIndex={1} position="relative">
-        <Heading fontSize={{ base: "3xl", md: "4xl" }} fontWeight="extrabold" bgGradient="linear(to-r, #FF7EB9, #FFD6C0)" bgClip="text">
+        <Heading
+          fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
+          fontWeight="black"
+          bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
+          bgClip="text"
+        >
           Features & Speaking Engagements
         </Heading>
-        <Text fontSize={{ base: "md", md: "lg" }} maxW="800px">
+        <Text fontSize={{ base: "md", md: "lg" }} maxW="850px" color="gray.600" lineHeight={1.7}>
           Rachael has been driving innovation in EdTech, bridging academia and business, and mentoring startups to scale successfully. Here are some of her impactful engagements:
         </Text>
       </VStack>
 
       {/* Videos Grid */}
-      <SimpleGrid columns={{ base: 1, md: 3 }} gap={10} zIndex={1} position="relative">
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={{ base: 8, md: 10 }} zIndex={1} position="relative">
         {visibleEngagements.map((engagement, idx) => (
           <MotionBox
             key={idx}
             bg="white"
             borderRadius="2xl"
-            p={4}
-            shadow="xl"
-            initial={{ opacity: 0, y: 20 }}
+            p={5}
+            shadow="md"
+            border="1px solid"
+            borderColor="gray.100"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.15, duration: 0.5 }}
-            whileHover={{ scale: 1.05, boxShadow: "2xl" }}
+            whileHover={{ y: -8, scale: 1.03, boxShadow: "xl" }}
           >
             <VStack gap={4} align="stretch">
-              <Heading fontSize={{ base: "lg", md: "xl" }} bgGradient="linear(to-r, #FF7EB9, #FFD6C0)" bgClip="text">
+              <Heading
+                fontSize={{ base: "lg", md: "xl" }}
+                fontWeight="semibold"
+                bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
+                bgClip="text"
+              >
                 {engagement.title}
               </Heading>
-              <AspectRatio ratio={16 / 9} borderRadius="2xl" overflow="hidden">
+              <AspectRatio ratio={16 / 9} borderRadius="xl" overflow="hidden" shadow="sm">
                 <iframe
                   src={engagement.youtubeUrl}
                   title={engagement.title}
@@ -82,16 +127,18 @@ export const FeaturesAndSpeakingEngagements = () => {
       </SimpleGrid>
 
       {/* Load More / Load Less CTA */}
-      <Flex justify="center" mt={12} zIndex={1} position="relative">
+      <Flex justify="center" mt={14} zIndex={1} position="relative">
         <Button
           size="lg"
-          px={6}
+          px={8}
+          py={6}
           colorScheme="pink"
           bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
           color="white"
           fontWeight="bold"
           borderRadius="full"
-          _hover={{ transform: "scale(1.05)", boxShadow: "2xl", bgGradient: "linear(to-r, #FFD6C0, #FFDAC1)" }}
+          _hover={{ transform: "scale(1.07)", boxShadow: "xl", bgGradient: "linear(to-r, #FFD6C0, #FF7EB9)" }}
+          transition="all 0.3s ease"
           onClick={() => setShowAll(!showAll)}
         >
           {showAll ? "Show Less" : "Load More"}

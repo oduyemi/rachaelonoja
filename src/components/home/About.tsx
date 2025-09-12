@@ -19,15 +19,22 @@ import { FaArrowRight } from "react-icons/fa";
 
 const MotionBox = motion(Box);
 
-
-
-type HeadingSizes = "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl";
-
-
-
+type HeadingSizes =
+  | "sm"
+  | "md"
+  | "lg"
+  | "xl"
+  | "2xl"
+  | "xs"
+  | "3xl"
+  | "4xl"
+  | "5xl"
+  | "6xl"
+  | "7xl";
 
 export const AboutSection = () => {
-  const headingSize = useBreakpointValue<HeadingSizes>({ base: "2xl", md: "3xl" }) ?? "2xl";
+  const headingSize =
+    useBreakpointValue<HeadingSizes>({ base: "2xl", md: "3xl" }) ?? "2xl";
   const [activeIndex, setActiveIndex] = useState(0);
 
   const focusAreas = [
@@ -66,9 +73,8 @@ export const AboutSection = () => {
       position="relative"
       overflow="hidden"
       w="100%"
-      className="mx-auto"
     >
-      {/* Symmetric floating shapes (less distracting) */}
+      {/* Background gradient blobs */}
       <Box
         position="absolute"
         top={{ base: -60, md: -90 }}
@@ -78,8 +84,7 @@ export const AboutSection = () => {
         bgGradient="radial(circle, #FFB6B9 0%, #FF7EB9 100%)"
         borderRadius="full"
         filter="blur(80px)"
-        opacity={0.85}
-        zIndex={0}
+        opacity={0.6}
       />
 
       <Box
@@ -91,33 +96,28 @@ export const AboutSection = () => {
         bgGradient="radial(circle, #FFD6C0 0%, #FFDAC1 100%)"
         borderRadius="full"
         filter="blur(90px)"
-        opacity={0.85}
-        zIndex={0}
+        opacity={0.6}
       />
 
-      <Container maxW="100%" px={{ base: 6, md: 12 }} position="relative" zIndex={1}>
-        {/* Constrain width so the section doesn't feel too wide on large displays */}
-        <Box maxW={{ base: "100%", md: "1100px" }} mx="auto">
-          {/* Top Grid: image + intro */}
+      <Container maxW="7xl" px={{ base: 6, md: 12 }} position="relative" zIndex={1}>
+        <Box maxW="1100px" mx="auto">
+          {/* Top Grid */}
           <Grid
             templateColumns={{ base: "1fr", md: "420px 1fr" }}
             alignItems="center"
-            gap={{ base: 8, md: 12 }}
-            mb={{ base: 10, md: 16 }}
+            gap={{ base: 10, md: 14 }}
+            mb={{ base: 12, md: 20 }}
           >
-            {/* Image column - centered inside its column */}
+            {/* Image */}
             <Box display="flex" justifyContent="center">
               <MotionBox
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.35 }}
                 borderRadius="2xl"
                 overflow="hidden"
-                boxShadow="lg"
+                boxShadow="2xl"
                 w={{ base: "250px", md: "420px" }}
                 h={{ base: "250px", md: "420px" }}
-                borderWidth={2}
-                borderColor="transparent"
-                _hover={{ borderColor: "rgba(255,126,185,0.14)" }}
               >
                 <ChakraImage
                   src="/images/homeabt.png"
@@ -129,64 +129,94 @@ export const AboutSection = () => {
               </MotionBox>
             </Box>
 
-            {/* Text column */}
-            <Stack gap={5} align={{ base: "center", md: "flex-start" }} textAlign={{ base: "center", md: "left" }}>
+            {/* Text */}
+            <Stack
+              gap={6}
+              align={{ base: "center", md: "flex-start" }}
+              textAlign={{ base: "center", md: "left" }}
+            >
               <Heading size={headingSize} fontWeight="extrabold" lineHeight={1.1}>
-                <Text as="span" bgGradient="linear(to-r, #FF7EB9, #FFD6C0)" bgClip="text">
+                <Text
+                  as="span"
+                  bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
+                  bgClip="text"
+                >
                   Hi, I am Rachael
                 </Text>
               </Heading>
 
-              <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" maxW={{ md: "680px" }}>
-                As a versatile education technology business consultant, I have spent over half a decade designing impactful program strategies and policies — developing the talent capacity of over half a million professionals.
+              <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" maxW="680px">
+                As a versatile education technology business consultant, I have
+                spent over half a decade designing impactful program strategies
+                and policies — developing the talent capacity of over half a
+                million professionals.
               </Text>
 
-              <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" maxW={{ md: "680px" }}>
-                See how I&apos;ve impacted businesses, supported governments, expanded markets, and promoted #BalanceUnleashed.
+              <Text fontSize={{ base: "md", md: "lg" }} color="gray.600" maxW="680px">
+                See how I&apos;ve impacted businesses, supported governments,
+                expanded markets, and promoted #BalanceUnleashed.
               </Text>
 
               <HStack gap={4} pt={2}>
-                <Link href={focusAreas[0].link} _hover={{ textDecoration: "none" }}>
+                <Link
+                  href={focusAreas[0].link}
+                  textDecoration="none"
+                  _hover={{ textDecoration: "none" }}
+                >
                   <Button
-                    size="md"
-                    py={4}
-                    px={6}
+                    size="lg"
                     borderRadius="full"
                     bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
                     color="white"
                     fontWeight="bold"
-                    _hover={{ transform: "translateY(-2px)", boxShadow: "lg" }}
+                    px={7}
+                    py={6}
+                    _hover={{
+                      transform: "scale(1.05)",
+                      boxShadow: "xl",
+                    }}
                   >
                     <HStack gap={2}>
-                      <Text>Explore Works</Text>
+                      <Text className="mt-3">Explore Works</Text>
                       <FaArrowRight />
                     </HStack>
                   </Button>
                 </Link>
 
-                <Button size="md" variant="ghost" px={6} borderRadius="full">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  borderRadius="full"
+                  px={7}
+                  py={6}
+                  borderColor="#FF7EB9"
+                  color="#FF7EB9"
+                  _hover={{
+                    bg: "rgba(255,126,185,0.08)",
+                    transform: "scale(1.03)",
+                  }}
+                >
                   Contact
                 </Button>
               </HStack>
             </Stack>
           </Grid>
 
-          {/* Tabs / Focus areas - improved visual styling */}
-          <VStack gap={8} align="stretch">
-            <Box overflowX={{ base: "auto", md: "visible" }} css={{ "&::-webkit-scrollbar": { height: 6 } }}>
-              <HStack
-                gap={4}
-                justify={{ base: "flex-start", md: "center" }}
-                flexWrap="nowrap"
-                pb={2}
-              >
+          {/* Focus Areas */}
+          <VStack gap={10} align="stretch">
+            <Box
+              overflowX={{ base: "auto", md: "visible" }}
+              css={{ "&::-webkit-scrollbar": { height: 6 } }}
+            >
+              <HStack gap={4} justify={{ base: "flex-start", md: "center" }} pb={2}>
                 {focusAreas.map((area, idx) => (
                   <Button
                     key={idx}
                     size="sm"
-                    variant={activeIndex === idx ? "solid" : "ghost"}
+                    variant="ghost"
                     px={6}
-                    bg={activeIndex === idx ? undefined : "transparent"}
+                    py={4}
+                    borderRadius="full"
                     bgGradient={
                       activeIndex === idx
                         ? "linear(to-r, #FF7EB9, #FFD6C0)"
@@ -194,10 +224,12 @@ export const AboutSection = () => {
                     }
                     color={activeIndex === idx ? "white" : "#333"}
                     fontWeight={activeIndex === idx ? "bold" : "semibold"}
-                    borderRadius="full"
                     boxShadow={activeIndex === idx ? "md" : "none"}
-                    _hover={{ transform: "translateY(-2px)", boxShadow: "md" }}
-                    transition="all 0.25s"
+                    _hover={{
+                      transform: "translateY(-2px)",
+                      boxShadow: "lg",
+                    }}
+                    transition="all 0.3s"
                     onClick={() => setActiveIndex(idx)}
                     minW="140px"
                     flexShrink={0}
@@ -211,60 +243,46 @@ export const AboutSection = () => {
             {/* Active Card */}
             <MotionBox
               key={activeIndex}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.45 }}
               bg="white"
               borderRadius="2xl"
-              p={{ base: 5, md: 8 }}
-              boxShadow="xl"
+              p={{ base: 6, md: 10 }}
+              boxShadow="2xl"
               borderWidth={1}
-              borderColor="rgba(0,0,0,0.04)"
-              maxW={{ base: "100%", md: "900px" }}
+              borderColor="rgba(0,0,0,0.06)"
+              maxW="900px"
               mx="auto"
             >
-              <VStack gap={4} align="flex-start">
+              <VStack gap={5} align="flex-start">
                 <Heading size="md" color="#FF7EB9">
                   {focusAreas[activeIndex].title}
                 </Heading>
-                <Text color="#555" fontSize={{ base: "md", md: "lg" }}>
+                <Text color="gray.700" fontSize={{ base: "md", md: "lg" }}>
                   {focusAreas[activeIndex].description}
                 </Text>
-                <Link href={focusAreas[activeIndex].link} _hover={{ textDecoration: "none" }}>
-                  <Button
-                  size="md"
-                  py={3}
-                  px={5}
-                  borderRadius="full"
-                  bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
-                  color="white"
-                  fontWeight="bold"
-                  _hover={{ transform: "translateY(-2px)", boxShadow: "lg" }}
-                  transition="all 0.25s"
-                  as="a"
+                <Link
+                  href={focusAreas[activeIndex].link}
+                  textDecoration="none"
+                  _hover={{ textDecoration: "none" }}
                 >
-                  <HStack gap={2}>
-                      <Text>Learn More</Text>
-                      <FaArrowRight />
-                  </HStack>
-                </Button>
-                </Link>
-                <Link href={focusAreas[activeIndex].link} _hover={{ textDecoration: "none" }}>
                   <Button
                     size="md"
-                    py={3}
-                    px={5}
                     borderRadius="full"
                     bgGradient="linear(to-r, #FF7EB9, #FFD6C0)"
                     color="white"
                     fontWeight="bold"
-                    _hover={{ transform: "translateY(-2px)", boxShadow: "lg" }}
-                    transition="all 0.25s"
-                    as="a"
+                    px={6}
+                    py={4}
+                    _hover={{
+                      transform: "scale(1.05)",
+                      boxShadow: "lg",
+                    }}
                   >
                     <HStack gap={2}>
-                        <Text>Learn More</Text>
-                        <FaArrowRight />
+                      <Text className="mt-3">Learn More</Text>
+                      <FaArrowRight />
                     </HStack>
                   </Button>
                 </Link>
