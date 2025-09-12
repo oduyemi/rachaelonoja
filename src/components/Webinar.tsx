@@ -16,27 +16,21 @@ const MotionBox = motion(Box);
 
 export const BookWebinar = () => {
   return (
-    <Box
-      as="section"
-      bg="gray.50"
-      py={{ base: 16, md: 24 }}
-      px={4}
-      overflow="hidden"
-    >
+    <Box as="section" bg="gray.50" py={{ base: 16, md: 24 }} px={4}>
       <Container maxW="7xl">
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
-          gap={{ base: 10, md: 16 }}
+          gap={{ base: 8, md: 10 }} // tighter gap
           alignItems="center"
         >
           {/* Left Content */}
           <MotionBox
-            initial={{ x: -50, opacity: 0 }}
+            initial={{ x: -40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <VStack gap={6} align="start" maxW="nd">
+            <VStack gap={6} align="start">
               <Heading
                 fontSize={{ base: "2xl", md: "4xl", lg: "5xl" }}
                 fontWeight="extrabold"
@@ -47,7 +41,7 @@ export const BookWebinar = () => {
                 Book a Webinar with Me
               </Heading>
 
-              <Text fontSize={{ base: "md", md: "lg" }} color="gray.600">
+              <Text fontSize={{ base: "sm", md: "md" }} pl={5} color="gray.600" maxW="xl">
                 Want to scale your career, build impactful programs, or expand
                 globally? Let’s dive deep into actionable strategies that can
                 transform your growth journey.
@@ -57,6 +51,7 @@ export const BookWebinar = () => {
                 size="lg"
                 colorScheme="pink"
                 px={8}
+                ml={5}
                 shadow="md"
                 _hover={{ transform: "translateY(-2px)", shadow: "xl" }}
                 transition="all 0.2s"
@@ -68,7 +63,7 @@ export const BookWebinar = () => {
 
           {/* Right Image */}
           <MotionBox
-            initial={{ x: 50, opacity: 0 }}
+            initial={{ x: 40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
@@ -81,7 +76,7 @@ export const BookWebinar = () => {
               shadow="2xl"
               objectFit="cover"
               w="100%"
-              maxH={{ base: "300px", md: "400px" }}
+              maxH={{ base: "280px", md: "380px" }}
             />
           </MotionBox>
         </SimpleGrid>
