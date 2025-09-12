@@ -2,6 +2,7 @@
 import { HeroTemplate } from "@/components/HeroTemplate";
 import { TestimonialSection } from "@/components/home/Testimonial";
 import { MyServices } from "@/components/services/MyServices";
+import { BookWebinar } from "@/components/Webinar";
 import { Box } from "@chakra-ui/react";
 
 
@@ -22,6 +23,11 @@ export default function Services() {
         </Box>
         <Box>
           <TestimonialSection />
+        </Box>
+        <Box>
+          <BookWebinar />
+        </Box>
+          <Box mb={10}>
         </Box>
       </main>
     </div>
