@@ -19,7 +19,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 const MotionBox = motion(Box);
 
-import type { SystemStyleObject } from "@chakra-ui/react";
+
 
 type HeadingSizes = "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl";
 

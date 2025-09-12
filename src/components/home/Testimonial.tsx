@@ -1,4 +1,3 @@
-// eslint-disable-line @typescript-eslint/no-unused-vars
 "use client";
 import { Box, Flex, Heading, Text, VStack, Image as ChakraImage, Button, useBreakpointValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -44,7 +43,7 @@ export const TestimonialSection = () => {
 
   return (
     <Box as="section" bg="#fff7fb" py={{ base: 20, md: 32 }} px={{ base: 6, md: 16 }} position="relative">
-      <VStack spacing={8} textAlign="center" mb={12}>
+      <VStack gap={8} textAlign="center" mb={12}>
         <Heading fontSize={{ base: "3xl", md: "4xl" }} fontWeight="extrabold" bgGradient="linear(to-r, #FF7EB9, #FFD6C0)" bgClip="text">
           Testimonials
         </Heading>
@@ -82,7 +81,7 @@ export const TestimonialSection = () => {
           shadow="2xl"
           maxW={cardWidth}
         >
-          <VStack spacing={6} align="flex-start">
+          <VStack gap={6} align="flex-start">
             {testimonials[activeIndex].image && (
               <ChakraImage
                 src={testimonials[activeIndex].image}

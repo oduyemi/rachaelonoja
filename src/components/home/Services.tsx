@@ -2,11 +2,11 @@
 import { Box, Flex, Heading, Text, VStack, SimpleGrid, Link, useBreakpointValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-const MotionBox = motion(Box);
+type HeadingSizes = "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl";
+const MotionLink = motion(Link);
 
 export const Ways = () => {
-  const headingSize = useBreakpointValue({ base: "2xl", md: "3xl" });
-
+  const headingSize = useBreakpointValue<HeadingSizes>({ base: "2xl", md: "3xl" }) ?? "2xl";
   const services = [
     {
       title: "Career Design & Scaling",
@@ -91,15 +91,14 @@ export const Ways = () => {
       {/* Services Grid */}
       <SimpleGrid
         columns={{ base: 1, md: 2, lg: 2 }}
-        spacing={{ base: 8, md: 10 }}
+        gap={{ base: 8, md: 10 }}
         px={{ base: 4, md: 16 }}
         zIndex={1}
         position="relative"
       >
         {services.map((service, index) => (
-          <MotionBox
+          <MotionLink
             key={index}
-            as={Link}
             href={service.href}
             textDecoration="none"
             _hover={{ textDecoration: "none" }}
@@ -113,15 +112,16 @@ export const Ways = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.15 }}
           >
-            <VStack align="flex-start" spacing={3}>
+            <VStack align="flex-start" gap={3}>
               <Heading size="md" color="#FF7EB9">
                 {service.title}
               </Heading>
               <Text color="#555">{service.description}</Text>
             </VStack>
-          </MotionBox>
+          </MotionLink>
         ))}
       </SimpleGrid>
+
     </Box>
   );
 };

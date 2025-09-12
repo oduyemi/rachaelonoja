@@ -15,7 +15,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import Link from "next/link";
+import NextLink from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -75,7 +75,7 @@ export const Header = () => {
       <Flex justify="space-between" align="center" h={{ base: "50px", md: "70px" }}>
         {/* Logo */}
         <Box textAlign={{ base: "center", md: "left" }}>
-          <Link href="/">
+          <NextLink href="/">
             <Image
               src="/images/logo.png"
               width={100} // smaller on mobile
@@ -83,37 +83,36 @@ export const Header = () => {
               alt="sitelogo"
               style={{ width: "auto", height: "auto" }}
             />
-          </Link>
+          </NextLink>
         </Box>
 
         {/* Desktop Nav Links */}
         <HStack gap={10} display={{ base: "none", md: "flex" }}>
           {navLinks.map((link) => (
+            <NextLink href={link.href}  passHref legacyBehavior key={link.label}>
             <ChakraLink
-              key={link.label}
-              as={Link}
-              href={link.href}
               {...linkStyle(link.href)}
             >
               {link.label}
             </ChakraLink>
+            </NextLink>
           ))}
         </HStack>
 
         {/* Hamburger Menu for Mobile */}
         <IconButton
           aria-label="Toggle Menu"
-          icon={isOpen ? <FaTimes /> : <FaBars />}
           display={{ base: "block", md: "none" }}
           onClick={() => setIsOpen(!isOpen)}
           variant="ghost"
-          fontSize="22px"
           color="black"
-          borderColor={"pink.400"}
+          borderColor="pink.400"
           bgColor="white"
           _hover={{ bg: "gray.100" }}
           _active={{ bg: "gray.200" }}
-        />
+        >
+          {isOpen ? <FaTimes fontSize="22px" /> : <FaBars fontSize="22px" />}
+        </IconButton>
       </Flex>
 
       {/* Mobile Menu with slide-down animation */}
@@ -123,7 +122,7 @@ export const Header = () => {
         transition="max-height 0.3s ease-in-out"
       >
         <VStack
-          spacing={4}
+          gap={4}
           mt={2}
           display={{ base: "flex", md: "none" }}
           bg="white"
@@ -133,47 +132,62 @@ export const Header = () => {
           borderRadius="md"
         >
           {navLinks.map((link) => (
-            <ChakraLink
-              key={link.label}
-              as={Link}
-              href={link.href}
-              w="full"
-              textAlign="center"
-              py={2}
-              {...linkStyle(link.href)}
-              onClick={() => setIsOpen(false)}
-            >
-              {link.label}
-            </ChakraLink>
+            <NextLink href={link.href} passHref legacyBehavior key={link.label}>
+              <ChakraLink
+                w="full"
+                textAlign="center"
+                py={2}
+                {...linkStyle(link.href)}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </ChakraLink>
+            </NextLink>
           ))}
         </VStack>
       </Box>
 
       {/* Social Icons (fixed right for desktop) */}
       <VStack
-        spacing={4}
+        gap={4}
         position="fixed"
         right="4"
         top="28%"
         display={{ base: "none", md: "flex" }}
       >
         {socialLinks.map((social) => (
-          <ChakraLink
-            key={social.label}
-            href={social.href}
-            isExternal
-            color="white"
-            bg="black"
-            w={10}
-            h={10}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            borderRadius="full"
-            _hover={{ bg: "gray.800" }}
-          >
-            <social.icon />
-          </ChakraLink>
+          // <ChakraLink
+          //   key={social.label}
+          //   href={social.href}
+          //   isExternal
+          //   color="white"
+          //   bg="black"
+          //   w={10}
+          //   h={10}
+          //   display="flex"
+          //   alignItems="center"
+          //   justifyContent="center"
+          //   borderRadius="full"
+          //   _hover={{ bg: "gray.800" }}
+          // >
+          //   <social.icon />
+          // </ChakraLink>
+          <NextLink href={social.href} passHref legacyBehavior key={social.label}>
+            <ChakraLink
+              // isExternal
+              color="white"
+              bg="black"
+              w={10}
+              h={10}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              borderRadius="full"
+              _hover={{ bg: "gray.800" }}
+            >
+              <social.icon />
+            </ChakraLink>
+          </NextLink>
         ))}
       </VStack>
     </Box>

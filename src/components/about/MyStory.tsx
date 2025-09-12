@@ -6,6 +6,7 @@ import {
   Text,
   VStack,
   SimpleGrid,
+  chakra,
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -14,13 +15,13 @@ import Image from "next/image";
 const MotionBox = motion(Box);
 const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
-
+const Iframe = chakra("iframe");
 export const MyStory = () => {
   return (
     <Box as="section" py={{ base: 16, md: 24 }} bg="gray.50">
       <Container maxW="6xl">
         {/* Intro */}
-        <VStack spacing={4} mb={12} textAlign="center">
+        <VStack gap={4} mb={12} textAlign="center">
           <MotionHeading
             fontSize={{ base: "3xl", md: "4xl" }}
             fontWeight="bold"
@@ -44,7 +45,7 @@ export const MyStory = () => {
         </VStack>
 
         {/* Section 1: Career & Impact */}
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center" mb={16}>
+        <SimpleGrid columns={{ base: 1, md: 2 }} gap={10} alignItems="center" mb={16}>
           <MotionBox
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -78,7 +79,7 @@ export const MyStory = () => {
         </SimpleGrid>
 
         {/* Section 2: Initiatives & Balance */}
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center" mb={16}>
+        <SimpleGrid columns={{ base: 1, md: 2 }} gap={10} alignItems="center" mb={16}>
           <MotionBox
             order={{ base: 2, md: 1 }}
             initial={{ x: 50, opacity: 0 }}
@@ -114,7 +115,7 @@ export const MyStory = () => {
         </SimpleGrid>
 
         {/* Section 3: Adventures */}
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center" mb={16}>
+        <SimpleGrid columns={{ base: 1, md: 2 }} gap={10} alignItems="center" mb={16}>
           <MotionBox
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -152,32 +153,28 @@ export const MyStory = () => {
           <Heading as="h3" fontSize="2xl" mb={6} color="pink.600" textAlign="center">
             Fun Videos & Connect
           </Heading>
-
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mb={6}>
-            <Box
-              as="iframe"
-              src="https://www.youtube.com/embed/TdEM9KSmlCo"
-              title="Fun Video 1"
-              width="100%"
-              height="300px"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              borderRadius="md"
-              boxShadow="md"
-            />
-            <Box
-              as="iframe"
-              src="https://www.youtube.com/embed/1o8TWBxUBYY"
-              title="Fun Video 2"
-              width="100%"
-              height="300px"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              borderRadius="md"
-              boxShadow="md"
-            />
-          </SimpleGrid>
-
+            <SimpleGrid columns={{ base: 1, md: 2 }} gap={6} mb={6}>
+              <Iframe
+                src="https://www.youtube.com/embed/TdEM9KSmlCo"
+                title="Fun Video 1"
+                width="100%"
+                height="300px"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                borderRadius="md"
+                boxShadow="md"
+              />
+              <Iframe
+                src="https://www.youtube.com/embed/1o8TWBxUBYY"
+                title="Fun Video 2"
+                width="100%"
+                height="300px"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                borderRadius="md"
+                boxShadow="md"
+              />
+            </SimpleGrid>
           <Text textAlign="center" fontSize="md" color="gray.700">
             Still here? Check out my <ChakraLink href="/blog" color="pink.600">Blog</ChakraLink> and <ChakraLink href="/works" color="pink.600">Work</ChakraLink> or connect with me.
           </Text>

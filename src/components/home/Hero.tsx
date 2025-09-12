@@ -1,6 +1,5 @@
 "use client";
 import { Box, Flex, Heading, Text, Button, VStack, useBreakpointValue, HStack, Link } from "@chakra-ui/react";
-import type { SystemStyleObject } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
